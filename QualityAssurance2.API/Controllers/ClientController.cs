@@ -1,6 +1,6 @@
 ﻿using AyubArbievQualityAssurance2.Data.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
-using QualityAssurance2.Data.Serveces.Interfaces;
+using QualityAssurance2.Data.Serveces.Interfaces.ServiceInterfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,9 +10,9 @@ namespace QualityAssurance2.API.Controllers
     [ApiController]
     public class ClientController : ControllerBase
     {
-        private readonly IBaseService<Client> _services;
+        private readonly IClientService _services;
 
-        public ClientController(IBaseService<Client> services)
+        public ClientController(IClientService services)
         {
             _services = services;
         }

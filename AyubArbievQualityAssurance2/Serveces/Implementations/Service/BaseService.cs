@@ -1,10 +1,11 @@
 ﻿using AyubArbievQualityAssurance2.Data.Models.Common;
 using AyubArbievQualityAssurance2.Data.Models.Entities;
 using QualityAssurance2.Data.Repositories.Implementations;
-using QualityAssurance2.Data.Serveces.Interfaces;
-using QualityAssurance2.Data.Serveces.Response;
+using QualityAssurance2.Data.Serveces.Implementations.Response;
+using QualityAssurance2.Data.Serveces.Interfaces.ResponseInterfaces;
+using QualityAssurance2.Data.Serveces.Interfaces.ServiceInterfaces;
 
-namespace QualityAssurance2.Data.Serveces.Implementations
+namespace QualityAssurance2.Data.Serveces.Implementations.Service
 {
     public class BaseService<T> : IBaseService<T> where T : BaseEntity
     {
@@ -24,7 +25,7 @@ namespace QualityAssurance2.Data.Serveces.Implementations
                     Data = model
                 };
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return new BaseResponse<T>() { Description = e.Message };
             }
@@ -53,7 +54,7 @@ namespace QualityAssurance2.Data.Serveces.Implementations
             {
                 var entity = _repository.Get().ToList();
                 if (!entity.Any()) return new BaseResponse<List<T>>() { Description = "Elements not found" };
-                return new BaseResponse<List<T>>() {  Data = entity };
+                return new BaseResponse<List<T>>() { Data = entity };
             }
             catch (Exception e)
             {
@@ -67,7 +68,7 @@ namespace QualityAssurance2.Data.Serveces.Implementations
             try
             {
                 var entity = _repository.Get().FirstOrDefault(x => x.Id == id);
-                if (entity == null) return new BaseResponse<T>(){ Description = "User not found" };        
+                if (entity == null) return new BaseResponse<T>() { Description = "User not found" };
                 return new BaseResponse<T>() { Data = entity };
 
 
@@ -114,6 +115,7 @@ namespace QualityAssurance2.Data.Serveces.Implementations
             {
                 return new BaseResponse<T>() { Description = e.Message };
             }
-        }  
+        }
     }
+
 }

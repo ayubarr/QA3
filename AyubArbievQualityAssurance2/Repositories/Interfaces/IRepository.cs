@@ -7,6 +7,7 @@ namespace QualityAssurance2.Data.Repositories.Interfaces
         public T Add(T item);        // C - Create
         public List<T> GetAll();     // R - ReadAll
         public T GetById(int id);    // R - ReadOne
+        public IQueryable<T> Get();  // R - Read
         public void Update(T Item);  // U - Update
         public void Delete(T item);  // D - Delete
     }

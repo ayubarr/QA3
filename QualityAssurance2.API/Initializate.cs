@@ -1,8 +1,8 @@
 ﻿using AyubArbievQualityAssurance2.Data.Models.Entities;
 using QualityAssurance2.Data.Repositories.Implementations;
 using QualityAssurance2.Data.Repositories.Interfaces;
-using QualityAssurance2.Data.Serveces.Implementations;
-using QualityAssurance2.Data.Serveces.Interfaces;
+using QualityAssurance2.Data.Serveces.Implementations.Service;
+using QualityAssurance2.Data.Serveces.Interfaces.ServiceInterfaces;
 
 namespace QualityAssurance2.API
 {
@@ -18,10 +18,10 @@ namespace QualityAssurance2.API
         }
         public static void InitializeServeces(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IBaseService<Client>), typeof(BaseService<Client>));
-            services.AddScoped(typeof(IBaseService<Order>), typeof(BaseService<Order>));
-            //services.AddScoped<IBaseService<Client>, BaseService<Client>>();
-            //services.AddScoped<IBaseService<Order>, BaseService<Order>>();
+            //services.AddScoped(typeof(IClientService), typeof(ClientService));
+            //services.AddScoped(typeof(IOrderService), typeof(OrderService));
+            services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<IOrderService, OrderService>();
 
         }
     }

@@ -9,8 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-
-
 builder.Services.AddTransient<IRepository<Order>, Repository<Order>>();
 
 var connection = builder.Configuration.GetConnectionString("ConnectionString2");
