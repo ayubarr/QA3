@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QualityAssurance2.Data.DataBase.SqlServer;
 
@@ -11,9 +12,11 @@ using QualityAssurance2.Data.DataBase.SqlServer;
 namespace QualityAssurance2.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230312155803_qa90")]
+    partial class qa90
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,7 +59,7 @@ namespace QualityAssurance2.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateAdd = new DateTime(2023, 3, 12, 22, 12, 43, 951, DateTimeKind.Local).AddTicks(2081),
+                            DateAdd = new DateTime(2023, 3, 12, 21, 58, 2, 745, DateTimeKind.Local).AddTicks(3146),
                             FirstName = "Adm",
                             LastName = "Adminuch",
                             OrderAmount = 0,

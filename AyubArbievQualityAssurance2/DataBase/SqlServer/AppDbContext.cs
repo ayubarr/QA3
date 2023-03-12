@@ -9,13 +9,13 @@ namespace QualityAssurance2.Data.DataBase.SqlServer
         public DbSet<Order> Order { get; set; }
         public DbSet<Client> Client { get; set; }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options): base(options) 
-        {
-
-        }
         public AppDbContext()
         {
             Database.EnsureCreated();
+        }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,7 +27,7 @@ namespace QualityAssurance2.Data.DataBase.SqlServer
 
             modelBuilder.Entity<Client>(builder =>
             {
-                builder.Property(c => c.Id).ValueGeneratedOnAdd();
+                //builder.Property(c => c.Id).ValueGeneratedOnAdd();
                 builder.HasData(new Client
                 {
                     Id = 1,
@@ -47,10 +47,10 @@ namespace QualityAssurance2.Data.DataBase.SqlServer
                 .OnDelete(DeleteBehavior.Cascade);
 
 
-            modelBuilder.Entity<Order>(builder =>
-            {
-                builder.Property(o => o.Id).ValueGeneratedOnAdd();
-            });
+            //modelBuilder.Entity<Order>(builder =>
+            //{
+            //    builder.Property(o => o.Id).ValueGeneratedOnAdd();
+            //});
 
         }
 

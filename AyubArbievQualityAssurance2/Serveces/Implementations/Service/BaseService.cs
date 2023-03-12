@@ -1,6 +1,7 @@
 ﻿using AyubArbievQualityAssurance2.Data.Models.Common;
 using AyubArbievQualityAssurance2.Data.Models.Entities;
 using QualityAssurance2.Data.Repositories.Implementations;
+using QualityAssurance2.Data.Repositories.Interfaces;
 using QualityAssurance2.Data.Serveces.Implementations.Response;
 using QualityAssurance2.Data.Serveces.Interfaces.ResponseInterfaces;
 using QualityAssurance2.Data.Serveces.Interfaces.ServiceInterfaces;
@@ -9,8 +10,8 @@ namespace QualityAssurance2.Data.Serveces.Implementations.Service
 {
     public class BaseService<T> : IBaseService<T> where T : BaseEntity
     {
-        private readonly Repository<T> _repository;
-        public BaseService(Repository<T> repository)
+        private readonly IRepository<T> _repository;
+        public BaseService(IRepository<T> repository)
         {
             _repository = repository;
         }

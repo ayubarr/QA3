@@ -10,9 +10,9 @@ namespace QualityAssurance2.API.Controllers
     [ApiController]
     public class ClientController : ControllerBase
     {
-        private readonly IClientService _services;
+        private readonly IBaseService<Client> _services;
 
-        public ClientController(IClientService services)
+        public ClientController(IBaseService<Client> services)
         {
             _services = services;
         }
