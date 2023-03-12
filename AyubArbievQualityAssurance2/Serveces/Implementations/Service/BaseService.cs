@@ -1,6 +1,5 @@
 ﻿using AyubArbievQualityAssurance2.Data.Models.Common;
 using AyubArbievQualityAssurance2.Data.Models.Entities;
-using QualityAssurance2.Data.Repositories.Implementations;
 using QualityAssurance2.Data.Repositories.Interfaces;
 using QualityAssurance2.Data.Serveces.Implementations.Response;
 using QualityAssurance2.Data.Serveces.Interfaces.ResponseInterfaces;

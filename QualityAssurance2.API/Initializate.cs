@@ -10,8 +10,11 @@ namespace QualityAssurance2.API
     {
         public static void InitializeRepositories(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IRepository<Client>), typeof(Repository<Client>));
-            services.AddScoped(typeof(IRepository<Order>), typeof(Repository<Order>));
+           // services.AddScoped(typeof(IRepository<Client>), typeof(Repository<Client>));
+           // services.AddScoped(typeof(IRepository<Order>), typeof(Repository<Order>));
+           // services.AddScoped(typeof(IAsyncRepository<Order>), typeof(Repository<Order>));
+            services.AddScoped(typeof(IAsyncRepository<Client>), typeof(AsyncRepository<Client>));
+
             //services.AddScoped<IRepository<Client>, Repository<Client>>();
             //services.AddScoped<IRepository<Order>, Repository<Order>>();
 
@@ -20,8 +23,12 @@ namespace QualityAssurance2.API
         {
             //services.AddScoped(typeof(IClientService), typeof(ClientService));
             //services.AddScoped(typeof(IOrderService), typeof(OrderService));
-            services.AddScoped<IClientService, ClientService>();
-            services.AddScoped<IOrderService, OrderService>();
+
+           // services.AddScoped<IClientService, ClientService>();
+          //  services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IAsyncClientService, AsyncClientService>();
+            
+
 
         }
     }

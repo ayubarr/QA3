@@ -10,9 +10,9 @@ namespace QualityAssurance2.API.Controllers
     [ApiController]
     public class ClientController : ControllerBase
     {
-        private readonly IBaseService<Client> _services;
+        private readonly IAsyncClientService _services;
 
-        public ClientController(IBaseService<Client> services)
+        public ClientController(IAsyncClientService services)
         {
             _services = services;
         }
@@ -28,32 +28,32 @@ namespace QualityAssurance2.API.Controllers
 
         // GET api/<ClientController>/5
         [HttpGet("{id}")]
-        public IResult Get(int id)
+        public async Task<IResult> Get(int id)
         {
-            var response = _services.GetById(id);
+            var response = await _services.GetById(id);
             return Results.Ok(response.Data);
         }
 
         // POST api/<ClientController>
         [HttpPost]
-        public void Post(Client model )
+        public async Task Post(Client model)
         {
-            _services.Create(model);
+            await _services.Create(model);
 
         }
 
         // PUT api/<ClientController>/5
         [HttpPut("{id}")]
-        public void Put(int id, Client model)  // Update
+        public async Task Put(int id, Client model)  // Update
         {
-            _services.Update(model);
+            await _services.Update(model);
         }
 
         // DELETE api/<ClientController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _services.Delete(id);
+            await _services.Delete(id);
         }
     }
 }
